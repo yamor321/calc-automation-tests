@@ -12,7 +12,7 @@ import pom.CalcElements;
  */
 public class BaseTests {
 
-    private WebDriver driver;
+    protected WebDriver driver;
     protected CalcElements calcActions;
 
     @BeforeClass
