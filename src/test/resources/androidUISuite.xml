@@ -4,10 +4,7 @@
 <suite name="SDKAndroidUITestsSuite" parallel="none">
     <test name="Android Tests">
         <classes>
-            <class name="admin.sdk.AuthByMobilePaswordlessPolicyUITest_Android"/>
-            <class name="admin.sdk.PushNotificationTemplateUITests_Android"/>
-            <class name="admin.sdk.TestPushCredentialsUITest_Android"/>
-            <class name="admin.sdk.MyAccountMobileTests_Android"/>
+<!--            <class name="admin.sdk.AuthByMobilePaswordlessPolicyUITest_Android"/>-->
         </classes>
     </test>
 </suite>

@@ -5,7 +5,7 @@
     <!--</Properties>-->
     <Appenders>
         <!-- File Appender -->
-        <File name="FILE" fileName="logger/API_PingIdForCustomers.log" append="true">
+        <File name="FILE" fileName="logger/calc-automation.log" append="true">
             <PatternLayout pattern="[log_time=%d{ISO8601}] *|* [thread=%t] *|* [level=%-5p] *|* [%C{2}] - %m%n" />
         </File>
         <!-- Console Appender -->
