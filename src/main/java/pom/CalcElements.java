@@ -1,18 +1,20 @@
 package pom;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
+import java.util.Arrays;
 
 /**
- * Created by yardenmorshtein on 02/09/2021.
+ * Created by yardenmorshtein on 03/09/2021.
  */
 public class CalcElements {
 
+    protected static final Logger logger = LogManager.getLogger(CalcElements.class);
     private final WebDriverWait waitDriver;
 
 
@@ -63,8 +65,16 @@ public class CalcElements {
 
     public String calcGetAllHistory(){
         waitDriver.until(ExpectedConditions.elementToBeClickable(By.id("hist"))).click();
-        return waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='histframe']/ul/li[1]"))).getText();
-    }
+        String historyList[] = new String[4];
+        for (int i = 0 ; i <= 3 ; i++) {
+            int j = i+1;
+            String histRecordFormula = waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='histframe']/ul/li["+ j +"]//p[@class='l']"))).getText();
+            String histRecordResult = waitDriver.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='histframe']/ul/li["+ j +"]//p[@class='r']"))).getText();
 
+            historyList[i] = histRecordFormula + histRecordResult;
+            logger.info("Calculator History Record Number - {} = {}",(i+1),historyList[i]);
+        }
+        return Arrays.toString(historyList);
+    }
 
 }

@@ -34,8 +34,13 @@
             <version>4.0.0</version>
         </dependency>
 
-    </dependencies>
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>5.0.8</version>
+        </dependency>
 
+    </dependencies>
     <build>
         <pluginManagement>
             <plugins>
@@ -55,7 +60,7 @@
                     <version>3.0.0-M3</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <suiteXmlFile>${suiteXmlFile}</suiteXmlFile>
+                            <suiteXmlFile>src/test/resources/calcTests.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>

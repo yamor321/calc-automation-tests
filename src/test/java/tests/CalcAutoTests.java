@@ -3,20 +3,17 @@ package tests;
 import base.BaseTests;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import utils.TestListener;
 
 /**
  * Created by yardenmorshtein on 03/09/2021.
  */
+@Listeners(TestListener.class)
 public class CalcAutoTests extends BaseTests {
-
 
     @BeforeClass
     public void beforeClass()  {
     super.beforeClass();
-    }
-
-    @BeforeMethod
-    public void beforeMethod(){
     }
 
     @Test(priority = 1)
@@ -63,8 +60,9 @@ public class CalcAutoTests extends BaseTests {
     }
 
     @Test(priority = 5)
-    public void checkFormulasValidation() throws InterruptedException {
-        calcActions.calcGetAllHistory();
+    public void checkFormulasValidation() {
+        String expectedHistory = "[sin(30)= 0.5, (10-2)*2= 16, 10-2= 8, 2+3= 5]";
+        Assert.assertEquals(calcActions.calcGetAllHistory(),expectedHistory);
     }
 
     @AfterMethod
@@ -74,6 +72,6 @@ public class CalcAutoTests extends BaseTests {
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
-//        driver.close();
+        driver.close();
     }
 }
